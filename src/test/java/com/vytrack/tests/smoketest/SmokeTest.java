@@ -9,6 +9,7 @@ public class SmokeTest extends TestBase {
 
     @Test(groups= {"smoke"})
     public void verifyDashboards() {
+
         extentLogger = report.createTest("Verify Dashboards module");
         String username = ConfigurationReader.getProperty("storemanagerusername");
         String password = ConfigurationReader.getProperty("storemanagerpassword");

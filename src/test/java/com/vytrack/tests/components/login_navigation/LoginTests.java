@@ -4,6 +4,7 @@ import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -36,8 +37,8 @@ public class LoginTests extends TestBase {
 
 
     @Test
-    @Parameters({ "username", "password" }) // get data from data testng.xml
-    public void loginWithParameters(String username, String password) {
+    @Parameters({"username", "password" }) // get data from data testng.xml
+    public void loginWithParameters( String username,  String password) {
         extentLogger = report.createTest("Login as store manager");
 
         //we are instantiating page class inside a tests class,
@@ -64,7 +65,8 @@ public class LoginTests extends TestBase {
         extentLogger.pass("Verified page name: " + pages.dashboardPage().getPageSubTitle());
     }
 
-    @DataProvider(name = "credentials_info")
+    @DataProvider(name = "credentials_info") /// we use this to perform data driven testing when yu wanna login with 10 different credentials
+    ///(sets of
     public static Object[][] credentials() {
         return new Object[][] { { "storemanager85", "UserUser123" },
                                 { "salesmanager110", "UserUser123" }};

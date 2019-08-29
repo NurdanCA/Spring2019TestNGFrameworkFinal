@@ -21,8 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     //should be public/protected !!!!
-    protected WebDriver driver;
-    protected Pages pages;
+    protected WebDriver driver;protected Pages pages;
     protected SoftAssert softAssert;
     protected static ExtentReports report;
     protected static ExtentHtmlReporter htmlReporter;
@@ -96,9 +95,9 @@ public class TestBase {
         } else if (result.getStatus() == ITestResult.SKIP) {
             extentLogger.skip("Test Case Skipped is " + result.getName());
         }
-        if(browser == null){
-            browser = ConfigurationReader.getProperty("browser");
-        }
+//        if(browser == null){
+//            browser = ConfigurationReader.getProperty("browser");
+//        }
         extentLogger.log(Status.INFO, MarkupHelper.createLabel("Browser: "+browser, ExtentColor.ORANGE));
         softAssert.assertAll();
         Driver.closeDriver();
